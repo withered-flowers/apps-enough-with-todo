@@ -10,7 +10,7 @@ class CreateTaskScreen extends StatelessWidget {
 
   const CreateTaskScreen({super.key});
 
-  // TODO: Part 4 - 15:02
+  // TODO: Part 4 - 29:37
 
   @override
   Widget build(BuildContext context) {
@@ -23,22 +23,15 @@ class CreateTaskScreen extends StatelessWidget {
         physics: AlwaysScrollableScrollPhysics(),
         padding: EdgeInsets.all(16),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             CommonTextField(title: "Task Title", hintText: "Task Title"),
             Gap(16),
-            Row(
-              children: [
-                Expanded(
-                  child: CommonTextField(title: "Date", hintText: "May, 21"),
-                ),
-                Gap(16),
-                Expanded(
-                  child: CommonTextField(title: "Time", hintText: "10:30"),
-                ),
-              ],
-            ),
+            SelectDateTime(),
             Gap(16),
-            CommonTextField(title: "Note", hintText: "Task Note"),
+            CommonTextField(title: "Note", hintText: "Task Note", maxLines: 6),
+            Gap(32),
+            ElevatedButton(onPressed: () {}, child: Text("Add Task")),
           ],
         ),
       ),
