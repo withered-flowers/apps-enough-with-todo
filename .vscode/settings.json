@@ -1,0 +1,57 @@
+{
+  "debug.console.fontSize": 12,
+  "editor.minimap.enabled": false,
+  "editor.fontFamily": "FiraCode Nerd Font, JetBrains Mono, Menlo, Monaco, Courier New, monospace",
+  "editor.fontWeight": "normal",
+  "editor.fontSize": 12,
+  "editor.indentSize": "tabSize",
+  "editor.letterSpacing": 0,
+  "editor.lineHeight": 1.5,
+  "editor.rulers": [
+    100
+  ],
+  "editor.tabSize": 2,
+  "files.autoSave": "off",
+  "inlineChat.mode": "preview",
+  "terminal.integrated.localEchoLatencyThreshold": -1,
+  "terminal.integrated.localEchoEnabled": "off",
+  "terminal.integrated.fontSize": 13,
+  "workbench.preferredDarkColorTheme": "Monospace Dark",
+  "workbench.preferredLightColorTheme": "Monospace Light",
+  "workbench.iconTheme": "monospace",
+  "workbench.layoutControl.enabled": false,
+  "workbench.startupEditor": "none",
+  "window.autoDetectColorScheme": true,
+  "window.commandCenter": false,
+  "IDX.aI.enableInlineCompletion": true,
+  "IDX.aI.enableCodebaseIndexing": true,
+  "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
+    "editor.detectIndentation": false,
+    "editor.formatOnSave": true,
+    "editor.inlayHints.enabled": "onUnlessPressed",
+    "editor.insertSpaces": true,
+    "editor.rulers": [
+      100
+    ],
+    // "editor.wordWrap": "wordWrapColumn",
+    "editor.suggest.insertMode": "replace",
+    "editor.tabSize": 2,
+  },
+  "[json]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace",
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "vscode.json-language-features",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
+    },
+    "editor.suggest.insertMode": "replace"
+  }
+}
