@@ -10,8 +10,6 @@ class CreateTaskScreen extends StatelessWidget {
 
   const CreateTaskScreen({super.key});
 
-  // TODO: Part 5 - 00:00
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
