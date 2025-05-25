@@ -30,4 +30,28 @@ class Task extends Equatable {
     category,
     isCompleted,
   ];
+
+  Map<String, dynamic> toJson() {
+    return {
+      DbKeys.idColumn: id,
+      DbKeys.titleColumn: title,
+      DbKeys.noteColumn: note,
+      DbKeys.timeColumn: time,
+      DbKeys.dateColumn: date,
+      DbKeys.categoryColumn: category.name,
+      DbKeys.isCompletedColumn: isCompleted ? 1 : 0,
+    };
+  }
+
+  factory Task.fromJson(Map<String, dynamic> json) {
+    return Task(
+      id: json[DbKeys.idColumn],
+      title: json[DbKeys.titleColumn],
+      note: json[DbKeys.noteColumn],
+      time: json[DbKeys.timeColumn],
+      date: json[DbKeys.dateColumn],
+      category: TaskCategories.stringToCategory(json[DbKeys.categoryColumn]),
+      isCompleted: json[DbKeys.isCompletedColumn],
+    );
+  }
 }

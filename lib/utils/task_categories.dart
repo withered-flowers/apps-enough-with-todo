@@ -15,4 +15,11 @@ enum TaskCategories {
   final Color color;
 
   const TaskCategories(this.icon, this.color);
+
+  static TaskCategories stringToCategory(String category) {
+    return TaskCategories.values.firstWhere(
+      (e) => e.name == category,
+      orElse: () => TaskCategories.others,
+    );
+  }
 }
