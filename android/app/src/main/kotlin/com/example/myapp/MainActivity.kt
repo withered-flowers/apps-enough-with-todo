@@ -1,4 +1,4 @@
-package com.example.myapp
+package dev.witheredflowers.enoughwithtodo
 
 import io.flutter.embedding.android.FlutterActivity
 
