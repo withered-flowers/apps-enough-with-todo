@@ -11,7 +11,7 @@ class Task extends Equatable {
   final TaskCategories category;
   final bool isCompleted;
 
-  Task({
+  const Task({
     required this.title,
     required this.note,
     required this.time,
@@ -52,7 +52,7 @@ class Task extends Equatable {
       time: json[DbKeys.timeColumn],
       date: json[DbKeys.dateColumn],
       category: TaskCategories.stringToCategory(json[DbKeys.categoryColumn]),
-      isCompleted: json[DbKeys.isCompletedColumn],
+      isCompleted: json[DbKeys.isCompletedColumn] == 1 ? true : false,
     );
   }
 

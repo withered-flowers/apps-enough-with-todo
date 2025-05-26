@@ -15,7 +15,7 @@
   "inlineChat.mode": "preview",
   "terminal.integrated.localEchoLatencyThreshold": -1,
   "terminal.integrated.localEchoEnabled": "off",
-  "terminal.integrated.fontSize": 13,
+  "terminal.integrated.fontSize": 12,
   "workbench.preferredDarkColorTheme": "Monospace Dark",
   "workbench.preferredLightColorTheme": "Monospace Light",
   "workbench.iconTheme": "monospace",

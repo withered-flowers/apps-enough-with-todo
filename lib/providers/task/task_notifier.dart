@@ -6,13 +6,14 @@ import 'package:enough_with_todo/providers/providers.dart';
 class TaskNotifier extends StateNotifier<TaskState> {
   final TaskRepository _repository;
 
-  TaskNotifier(this._repository) : super(TaskState.initial());
-
-  // ? TODO: PART 06 - 06:45
+  TaskNotifier(this._repository) : super(TaskState.initial()) {
+    getTasks();
+  }
 
   Future<void> createTask(Task task) async {
     try {
       await _repository.addTask(task);
+      await getTasks();
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -24,6 +25,7 @@ class TaskNotifier extends StateNotifier<TaskState> {
       final updatedTask = task.copyWith(isCompleted: isCompleted);
 
       await _repository.updateTask(updatedTask);
+      await getTasks();
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -32,6 +34,7 @@ class TaskNotifier extends StateNotifier<TaskState> {
   Future<void> deleteTask(Task task) async {
     try {
       await _repository.deleteTask(task);
+      await getTasks();
     } catch (e) {
       debugPrint(e.toString());
     }
