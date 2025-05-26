@@ -8,7 +8,7 @@ class TaskNotifier extends StateNotifier<TaskState> {
 
   TaskNotifier(this._repository) : super(TaskState.initial());
 
-  // ? PART 06 - 06:45
+  // ? TODO: PART 06 - 06:45
 
   Future<void> createTask(Task task) async {
     try {
@@ -20,7 +20,10 @@ class TaskNotifier extends StateNotifier<TaskState> {
 
   Future<void> updateTask(Task task) async {
     try {
-      await _repository.addTask(task);
+      final isCompleted = !task.isCompleted;
+      final updatedTask = task.copyWith(isCompleted: isCompleted);
+
+      await _repository.updateTask(updatedTask);
     } catch (e) {
       debugPrint(e.toString());
     }
@@ -28,7 +31,17 @@ class TaskNotifier extends StateNotifier<TaskState> {
 
   Future<void> deleteTask(Task task) async {
     try {
-      await _repository.addTask(task);
+      await _repository.deleteTask(task);
+    } catch (e) {
+      debugPrint(e.toString());
+    }
+  }
+
+  Future<void> getTasks() async {
+    try {
+      final tasks = await _repository.getAllTasks();
+
+      state = state.copyWith(tasks: tasks);
     } catch (e) {
       debugPrint(e.toString());
     }

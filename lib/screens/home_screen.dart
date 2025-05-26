@@ -13,6 +13,8 @@ class HomeScreen extends StatelessWidget {
 
   const HomeScreen({super.key});
 
+  // TODO: Part 07 - 00:22
+
   @override
   Widget build(BuildContext context) {
     final colors = context.colorScheme;
@@ -65,7 +67,7 @@ class HomeScreen extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     DisplayListsOfTasks(
-                      tasks: const [
+                      tasks: [
                         Task(
                           title: 'title 1',
                           note: 'note',
@@ -94,7 +96,7 @@ class HomeScreen extends StatelessWidget {
                     ),
                     Gap(8),
                     DisplayListsOfTasks(
-                      tasks: const [
+                      tasks: [
                         Task(
                           title: 'title 1',
                           note: '',

@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:enough_with_todo/utils/utils.dart';
 import 'package:equatable/equatable.dart';
 
@@ -10,14 +11,14 @@ class Task extends Equatable {
   final TaskCategories category;
   final bool isCompleted;
 
-  const Task({
-    this.id,
+  Task({
     required this.title,
     required this.note,
     required this.time,
     required this.date,
     required this.category,
     required this.isCompleted,
+    this.id,
   });
 
   @override
@@ -52,6 +53,26 @@ class Task extends Equatable {
       date: json[DbKeys.dateColumn],
       category: TaskCategories.stringToCategory(json[DbKeys.categoryColumn]),
       isCompleted: json[DbKeys.isCompletedColumn],
+    );
+  }
+
+  Task copyWith({
+    ValueGetter<int?>? id,
+    String? title,
+    String? note,
+    String? time,
+    String? date,
+    TaskCategories? category,
+    bool? isCompleted,
+  }) {
+    return Task(
+      id: id != null ? id() : this.id,
+      title: title ?? this.title,
+      note: note ?? this.note,
+      time: time ?? this.time,
+      date: date ?? this.date,
+      category: category ?? this.category,
+      isCompleted: isCompleted ?? this.isCompleted,
     );
   }
 }

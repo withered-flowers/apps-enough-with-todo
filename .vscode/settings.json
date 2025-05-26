@@ -22,7 +22,7 @@
   "workbench.layoutControl.enabled": false,
   "workbench.startupEditor": "none",
   "window.autoDetectColorScheme": true,
-  "window.commandCenter": false,
+  "window.commandCenter": true,
   "IDX.aI.enableInlineCompletion": true,
   "IDX.aI.enableCodebaseIndexing": true,
   "[dart]": {
