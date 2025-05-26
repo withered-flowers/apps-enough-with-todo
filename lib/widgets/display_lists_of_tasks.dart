@@ -1,9 +1,11 @@
+import 'package:enough_with_todo/providers/providers.dart';
 import 'package:enough_with_todo/widgets/widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:enough_with_todo/data/data.dart';
 import 'package:enough_with_todo/utils/utils.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-class DisplayListsOfTasks extends StatelessWidget {
+class DisplayListsOfTasks extends ConsumerWidget {
   final List<Task> tasks;
   final bool isCompletedTasks;
 
@@ -14,7 +16,7 @@ class DisplayListsOfTasks extends StatelessWidget {
   });
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final deviceSize = context.deviceSize;
     final height =
         isCompletedTasks ? deviceSize.height * 0.24 : deviceSize.height * 0.24;
@@ -35,11 +37,9 @@ class DisplayListsOfTasks extends StatelessWidget {
 
                   return InkWell(
                     onLongPress: () {
-                      // TODO: Delete Task
+                      AppAlerts.displayDeleteAlertDialog(context, ref, task);
                     },
                     onTap: () async {
-                      // TODO: Show Task Details
-
                       await showModalBottomSheet(
                         useSafeArea: true,
                         context: context,
@@ -48,7 +48,21 @@ class DisplayListsOfTasks extends StatelessWidget {
                         },
                       );
                     },
-                    child: TaskTile(task: task),
+                    child: TaskTile(
+                      task: task,
+                      onCompleted: (value) async {
+                        await ref
+                            .read(taskProvider.notifier)
+                            .updateTask(task)
+                            .then((value) {
+                              if (!context.mounted) return;
+                              AppAlerts.displaySnackBar(
+                                context,
+                                'Task updated successfully',
+                              );
+                            });
+                      },
+                    ),
                   );
                 },
                 padding: EdgeInsets.zero,
